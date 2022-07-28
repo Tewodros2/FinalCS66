@@ -25,9 +25,7 @@ mongoose.connect(
 
 app.use("/pictures", express.static("assets/pics/"));
 const corsOptions = {
-  origin: (origin, callback) => {
-    callback(null, true); //allow access
-  },
+  origin: "*",
 };
 //middleware
 app.use(express.json());
