@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../iproduct';
 import { ProductService } from './product.service';
 import { CommonService } from '../commen.service';
+import api from '../config';
 
 @Component({
   selector: 'app-list',
@@ -88,7 +89,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   getImage(picName: string) {
-    return 'http://localhost:3000/pictures/' + picName;
+    return `${api}/pictures/` + picName;
   }
 
   deleteProduct(id: string) {

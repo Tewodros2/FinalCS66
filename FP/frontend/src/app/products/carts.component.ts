@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProductService } from './product.service';
+import api from '../config';
+
 @Component({
   selector: 'app-carts',
   template: `
@@ -20,7 +22,6 @@ import { ProductService } from './product.service';
               [ngStyle]="{ 'margin-bottom': '10px' }"
             />
           </diV>
-
         </li>
       </ul>
       <div>
@@ -55,7 +56,7 @@ export class CartsComponent {
   }
 
   getImage(picName: string) {
-    return 'http://localhost:3000/pictures/' + picName;
+    return `${api}/pictures/` + picName;
   }
 
   gotoPayment(cart: any) {

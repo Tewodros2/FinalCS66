@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import api from '../config';
 
 @Injectable({
   providedIn: 'root',
@@ -7,41 +8,41 @@ import { Injectable } from '@angular/core';
 export class ProductService {
   constructor(private http: HttpClient) {}
   getProducts() {
-    return this.http.get('http://localhost:3000/products');
+    return this.http.get(`${api}/products`);
   }
   getProductById(id: string) {
-    return this.http.get('http://localhost:3000/products/' + id);
+    return this.http.get(`${api}/products/` + id);
   }
   updateProduct(id: string, product: any) {
-    return this.http.patch('http://localhost:3000/products/' + id, product);
+    return this.http.patch(`${api}/products/` + id, product);
   }
   addProduct(product: any) {
-    return this.http.post('http://localhost:3000/products', product);
+    return this.http.post(`${api}/products`, product);
   }
   deleteProduct(id: string) {
-    return this.http.delete('http://localhost:3000/products/' + id);
+    return this.http.delete(`${api}/products/` + id);
   }
 
   //===================================C A R T==========================
 
   addToCart(cartId: string, product: any) {
-    return this.http.put(`http://localhost:3000/carts/${cartId}`, product);
+    return this.http.put(`${api}/carts/${cartId}`, product);
   }
 
   getCartId() {
-    return this.http.post('http://localhost:3000/carts', {});
+    return this.http.post(`${api}/carts`, {});
   }
   getCartproductByProductId(productId: string) {
-    return this.http.get('http://localhost:3000/carts/' + productId);
+    return this.http.get(`${api}/carts/` + productId);
   }
   editCart(product: any) {
-    return this.http.patch('http://localhost:3000/carts', product);
+    return this.http.patch(`${api}/carts`, product);
   }
 
   addPayment(cart: any) {
-    return this.http.post('http://localhost:3000/payments', cart);
+    return this.http.post(`${api}/payments`, cart);
   }
   getPayments() {
-    return this.http.get('http://localhost:3000/payments');
+    return this.http.get(`${api}/payments`);
   }
 }

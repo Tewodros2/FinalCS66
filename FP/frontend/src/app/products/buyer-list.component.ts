@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { CommonService } from '../commen.service';
 import { IProduct } from '../iproduct';
 import { ProductService } from './product.service';
+import api from '../config';
 
 @Component({
   selector: 'app-buyer',
@@ -71,7 +72,7 @@ export class BuyerListComponent implements OnInit {
     });
   }
   getImage(picName: string) {
-    return 'http://localhost:3000/pictures/' + picName;
+    return `${api}/pictures/` + picName;
   }
   async sendToCart(product: any) {
     this.ProductService.getCartId().subscribe({
